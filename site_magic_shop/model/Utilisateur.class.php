@@ -5,7 +5,7 @@ class Utilisateur{
     private $mail;
     private $mdp;
 
-    function __construct($id,$nom,$mail,$mdp){
+    function __construct($id = NULL,$nom = NULL,$mail = NULL,$mdp = NULL){
       $this->id = $id;
       $this->nom = $nom;
       $this->mail = $mail;
@@ -27,6 +27,24 @@ class Utilisateur{
     function getMdp(){
       return $this->mdp;
     }
+
+    function setId($id){
+      $this->id = $id;
+    }
+
+    function setNom($nom){
+      $this->nom = $nom;
+    }
+
+    function setMail(){
+      $this->mail = ;
+    }
+
+    function getMdp(){
+      return $this->mdp;
+    }
+
+
 
 
 }
