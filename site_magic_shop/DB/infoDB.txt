@@ -1,0 +1,26 @@
+Ce fichier contient les spécification de la base de données utiliser dans le
+cadre de ce projet PHP.
+
+La base de données contiendra une table Offre où les éléments :
+-Sont identifiés par une Entier référence "ref"
+-Ont un "titre"
+-Ont une "description"
+-Ont un Entier "type"
+-Ont un "prix "réel"
+-Ont une date de publication "datePub"
+-Ont un "utilisateur" l'ayant poster
+
+Le type est définie selon la table suivant :
+Éphémère          = 1
+Rituel            = 2
+Enchantement      = 4
+Créature          = 8
+PlanesWalker      = 16
+Terrain           = 32
+Rouge             = 64
+Bleu              = 128
+Vert              = 256
+Noir              = 512
+Blanc             = 1028
+Si une carte dispose d'un type composite alors son type est égale à la somme des
+types composants.
