@@ -10,8 +10,14 @@
       private $date;
       private $utilisateur;
 
-      function __construct(){
-
+      function __construct($ref,$titre,$description,$type,$prix,$date,$utilisateur){
+        $this->ref = $ref;
+        $this->titre = $titre;
+        $this->description = $description;
+        $this->type = $type;
+        $this->prix = $prix;
+        $this->date = $date;
+        $this->utilisateur = $utilisateur;
       }
 
       function getRef(){
@@ -36,6 +42,10 @@
 
       function getDate(){
         return $this->date;
+      }
+
+      function getUtilisateur(){
+        return $this->utilisateur;
       }
 
   }
