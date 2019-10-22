@@ -1,0 +1,11 @@
+header {
+  position: sticky;
+  display: flex;
+  flex-direction: row;
+}
+
+.explication {
+  font-style: italic;
+  font-size: 12px;
+  color: gray;
+}
