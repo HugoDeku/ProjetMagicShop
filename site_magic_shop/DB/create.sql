@@ -14,3 +14,8 @@ CREATE TABLE Offre(
   datePublication DATE,
   utilisateur REFERENCES Utilisateur
 );
+
+CREATE TABLE Type(
+  ref INTEGER PRIMARY KEY,
+  texteCorrespondant TEXT,
+};
