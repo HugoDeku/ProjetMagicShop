@@ -24,6 +24,7 @@ class View {
     if ($p[0] != '.' && $p[0] != '/') {
       // Ajoute le chemin relatif
       $p = "../view/".$p;
+      $p = $p.".view.html";
     }
 
     // Tous les attributs de l'objet sont dupliqués en des variables
