@@ -17,5 +17,5 @@ CREATE TABLE Offre(
 
 CREATE TABLE Type(
   ref INTEGER PRIMARY KEY,
-  texteCorrespondant TEXT,
-};
+  texteCorrespondant TEXT
+);
