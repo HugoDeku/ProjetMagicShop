@@ -1,0 +1,11 @@
+1|Ephémère
+2|Rituel
+4|Enchantement
+8|Créature
+16|PlanesWalker
+32|Terrain
+64|Rouge
+128|Bleu
+256|Vert
+512|Noir
+1028|Blanc
