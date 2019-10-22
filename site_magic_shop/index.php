@@ -1,4 +1,3 @@
 <?php
-
-  header('Location: controler/main.ctrl.php');
+  header('Location: controler/Accueil.ctrl.php');
  ?>
