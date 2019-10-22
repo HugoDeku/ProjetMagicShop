@@ -1,7 +1,18 @@
+body{
+  text-align: center;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
 header {
-  position: sticky;
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.Co-Inscription {
+  margin-right: 2%;
 }
 
 .explication {
