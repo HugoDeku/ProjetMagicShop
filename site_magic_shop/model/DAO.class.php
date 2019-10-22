@@ -5,7 +5,7 @@
   class DAO {
     private $db;
 
-    private $database = 'sqlite:../DB/magicshop.db';
+    private $database = 'sqlite:../DB/base_de_donnee.db';
 
 
     function __construct() {
