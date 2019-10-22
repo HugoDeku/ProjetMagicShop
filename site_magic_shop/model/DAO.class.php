@@ -5,7 +5,7 @@
   class DAO {
     private $db;
 
-    private $database = 'sqlite:../DB/base_de_donnee.db';
+    private $database = 'sqlite:../DB/base_de_donnees.db';
 
 
     function __construct() {
