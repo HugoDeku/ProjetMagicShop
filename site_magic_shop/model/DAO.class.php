@@ -24,6 +24,22 @@
 
       $offres = $this->db->query($req)->fetchAll(PDO::FETCH_CLASS, "Offre");
     }
+
+    function genRef(array $types) : int{
+      $res = 0;
+      $req = "SELECT * FROM Type";
+      $tt = $this->db->query($req)->fetchAll();
+
+      foreach ($tt as $indice => $ligne) {
+        foreach ($types as $key => $value) {
+          if($ligne['texteCorrespondant'] == $value ){
+            $res = $res + $ligne['ref'];
+          }
+        }
+      }
+      return $res;
+
+    }
   }
 
  ?>
