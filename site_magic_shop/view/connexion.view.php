@@ -20,16 +20,18 @@
       </div>
     </header>
 
-    <h1>MagicShop - Échange et vente de cartes Magic</h1>
+    <form action="acceuil.view.html" method="post">
 
-    <p class="explication">Ce site a été crée dans le cadre du projet proposé dans le module "Programmation côté serveur" de l'IUT 2 de l'Université Grenoble-Alpes</p>
+      <label for="nom">Nom d'Utilisateur : </label>
+      <input type="text" name="nom" value="nom" required>
 
-    <p>
-      Bienvenue sur notre site. <br>
-      Vous voulez en savoir plus sur le jeu Magic ? Cliquez <a href="https://magic.wizards.com/fr">ici</a> pour voir leur site. <br>
-      Pour voir quels types de produits sont concernés, cliquez <a href="info.view.html" class="LienTexte">ici</a>. <br>
-      Pour voir des exemples d'offres, cliquez <a href="info.view.php" class="LienTexte">ici</a>. <br>
-    </p>
+      <label for="mail">Adresse mail : </label>
+      <input type="email" name="mail" value="mail" required>
+
+      <label for="mdp">Mot de passe : </label>
+      <input type="password" name="mdp" value="mdp" required>
+
+    </form>
 
   </body>
 </html>
