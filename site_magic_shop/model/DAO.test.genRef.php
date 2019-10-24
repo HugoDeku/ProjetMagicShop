@@ -1,10 +1,16 @@
 <?php
   //Test de la classe DAO
   require_once("../model/DAO.class.php");
-  //Création de l'objet DAO;
+  //creation de l'unique objet DAO
   $dao = new DAO();
-  //Création d'une array avec des élément de la table type
-  $types = array('Créature', 'Noir', 'Rouge', 'Bleu'); //résultat attendu 712
-  //Vérification de la valeur
-  print("Valeur attendu : 712\nValeur obtenue : ".$dao->genRef($types)."\n");
+  //recupération de la ref la plus grande
+  //création de la requête
+  $req = "SELECT max(ref) FROM Offre";
+  //Éxécution de la requête incrémenter de 1
+  $maxRef = $dao->db->query($req)->fetchAll()[0][0] + 1;
+
+  //Verification
+  print("Résultat attendu : ".$maxRef."\nRésultat obtenu : ".$dao->genRef()."\n");
+
+
  ?>

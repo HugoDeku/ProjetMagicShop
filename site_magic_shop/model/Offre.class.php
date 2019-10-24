@@ -10,7 +10,7 @@ require_once('../model/Utilisateur.class.php');
       private $date;
       private $utilisateur;
 
-      function __construct($ref,$titre,$description,$type,$prix,$date,$utilisateur){
+      function __construct($ref,$titre,$description,$type,$prix,$date,$utilisateur=null){
         $this->ref = $ref;
         $this->titre = $titre;
         $this->description = $description;

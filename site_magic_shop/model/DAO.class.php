@@ -105,7 +105,13 @@
       $offres = $this->db->querry($req)->fetchAll(PDO::FETCH_ASSOC);
       return $arrayRetour;
     }
-
+    function genRef() : int //a tester
+    //permet la génération d'une nouvelle référence en incrémentant la plus grande référence par 1
+    {
+      $req = "SELECT mac(ref) FROM Offre";
+      $maxRef = $this->db->query($req)->fetchAll()[0][0];
+      return  $maxID + 1;
+    }
   }
 
 
