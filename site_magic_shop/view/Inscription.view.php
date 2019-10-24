@@ -7,12 +7,15 @@ require_once("../model/Utilisateur.class.php");
   }
 
   if(isset($_SESSION['verifNom'])){
-    $verifNom = $_SESSION['verifNom']);
+    $verifNom = $_SESSION['verifNom'];
+    $_SESSION['verifNom'] = NULL;
   }
 
   if(isset($_SESSION['verifMail'])){
-    $verifMail = $_SESSION['verifMail']);
+    $verifMail = $_SESSION['verifMail'];
+    $_SESSION['verifMail'] = NULL;
   }
+  session_write_close();
  ?>
 
 <!DOCTYPE html>
@@ -37,13 +40,39 @@ require_once("../model/Utilisateur.class.php");
       </div>
     </header>
 
-    <h1>MagicShop - Échange et vente de cartes Magic</h1>
 
-    <p class="explication">Ce site a été crée dans le cadre du projet proposé dans le module "Programmation côté serveur" de l'IUT 2 de l'Université Grenoble-Alpes</p>
+    <?php if(!isset($user)) : ?>
+      //Si l'utilisateur est déjà connecté
 
-    <p>
 
-    </p>
+      <?php elseif(isset($verifNom) && $verifNom == false) : ?>
+      //S'il ya à déja eu une tentative et que le nom n'est pas disponible
+      <p>Nom pas disponible, veuillez en choisir un autre</p>
+
+      <?php  elseif(isset($verifMail) && $verifMail == false) : ?>
+      //S'il ya à déja eu une tentative et que le mail n'est pas disponible
+      <p>Mail déjà utilisé, vous avez peut-être déjà un compte</p>
+      <?php endif; ?>
+      <form action="../controler/Inscription.ctrl.php" method="post">
+
+        <label for="nom"> Pseudo : </label>
+        <input type="text" name="nom" required>
+
+        <label for="mail">Mail : </label>
+        <input type="email" name="mail" required>
+
+        <label for="mdp">Mot de pass : </label>
+        <input type="password" name="mdp" required>
+
+      </form>
+
+
+
+
+    <?php else :  ?>
+      <p>Vous êtes déjà connecté au site <?=$user->getNom?></p>
+    <?php endif; ?>
+
 
   </body>
 </html>
