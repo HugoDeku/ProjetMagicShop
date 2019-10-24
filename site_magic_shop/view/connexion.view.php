@@ -20,16 +20,19 @@
       </div>
     </header>
 
-    <form action="acceuil.view.html" method="post">
+    <form action="../controler/Connexion.ctrl.php" method="post">
+      <fieldset>
+        <legend>Formulaire de connexion</legend>
 
-      <label for="nom">Nom d'Utilisateur : </label>
-      <input type="text" name="nom" value="nom" required>
+        <label for="nom">Nom d'Utilisateur : </label>
+        <input type="text" name="nom" required> <br>
 
-      <label for="mail">Adresse mail : </label>
-      <input type="email" name="mail" value="mail" required>
+        <label for="mdp">Mot de passe : </label>
+        <input type="password" name="mdp" required><br>
 
-      <label for="mdp">Mot de passe : </label>
-      <input type="password" name="mdp" value="mdp" required>
+        <input type="submit" value="Connexion">
+      </fieldset>
+
 
     </form>
 
