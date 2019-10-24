@@ -1,5 +1,5 @@
 <?php
-require_once('../model/Utilisateur.class.php')
+require_once('../model/Utilisateur.class.php');
 
   class Offre{
       private $ref;
@@ -49,14 +49,5 @@ require_once('../model/Utilisateur.class.php')
       }
 
   }
-
-
-
-
-
-
-
-
-
 
  ?>

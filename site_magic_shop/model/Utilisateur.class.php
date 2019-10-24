@@ -36,12 +36,12 @@ class Utilisateur{
       $this->nom = $nom;
     }
 
-    function setMail(){
-      $this->mail = ;
+    function setMail($mail){
+      $this->mail = $mail;
     }
 
-    function getMdp(){
-      return $this->mdp;
+    function setMdp($mdp){
+      $this->mdp = $mdp;
     }
 
 

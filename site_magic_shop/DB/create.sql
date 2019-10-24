@@ -1,8 +1,8 @@
 CREATE TABLE Utilisateur(
   id INTEGER PRIMARY KEY,
-  nom TEXT,
+  nom TEXT UNIQUE,
   mail TEXT,
-  password TEXT UNIQUE
+  password TEXT
 );
 
 CREATE TABLE Offre(
