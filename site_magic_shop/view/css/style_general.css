@@ -1,6 +1,7 @@
 body{
   margin-left: 5%;
   margin-right: 5%;
+  background-color: #e6e6e6;
 }
 
 header {
@@ -27,6 +28,10 @@ header {
   text-decoration: none;
 }
 
+.Menu a:visited {
+  color: #cc9900;
+}
+
 .Co-Inscription {
   margin-right: 2%;
   display: flex;
@@ -35,13 +40,12 @@ header {
 }
 
 .Co-Inscription a:link {
-  color: #ffd24d;
-
+  color: inherit;
+  text-decoration: none;
 }
 
-.Connexion a:link {
-  color: #ffd24d;
-
+.Co-Inscription a:visited {
+  color: inherit;
 }
 
 .explication {
