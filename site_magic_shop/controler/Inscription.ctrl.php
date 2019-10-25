@@ -2,7 +2,7 @@
   require_once("../model/DAO.class.php");
   require_once("../model/Utilisateur.class.php");
 
-  $db = new DAO();
+  $db = new DAO;
 
 
   $nom = htmlentities($_POST['nom']);

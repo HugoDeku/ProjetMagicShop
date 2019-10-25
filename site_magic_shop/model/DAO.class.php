@@ -5,7 +5,7 @@
   class DAO {
     private $db;
 
-    private $database = 'sqlite:../DB/base_de_donnees.db';
+    private $database = "sqlite:../model/DB/base_de_donnees.db";
 
 
     function __construct() {
@@ -13,7 +13,7 @@
         $this->db = new PDO($this->database);
       }
       catch(PDOException $e){
-        die("Erreur de connexion".$e->getMessage());
+        die("Erreur de connexion : ".$e->getMessage());
       }
     }
 //------------------------------------------------------------------------------
