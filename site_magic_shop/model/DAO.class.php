@@ -5,19 +5,19 @@
   class DAO {
     private $db;
 
-    private $database = "sqlite:../model/DB/base_de_donnees.db";
+    private $path = '../model/DB/base_de_donnees.db';
 
 
     function __construct() {
       try{
-        $this->db = new PDO($this->database);
+        $this->db = new PDO('sqlite:'.$this->path);
       }
       catch(PDOException $e){
         die("Erreur de connexion : ".$e->getMessage());
       }
     }
 //------------------------------------------------------------------------------
-    //Table Utilisateur
+    //Table Utilisateurstring
 
     function addUser(Utilisateur $user)//tester et valider
     //permet l'ajout d'un nouvelle utilisateur dans la base de données
@@ -112,7 +112,19 @@
       $maxRef = $this->db->query($req)->fetchAll()[0][0];
       return  $maxID + 1;
     }
+
+
+  function verifDispoNom($nom){
+    $req = "SELECT count(*) FROM Utilisateur WHERE nom = \"$nom\" ";
+    $nb = $this->db->query($req)->fetchAll()[0][0];
+    return ($nb == 0);
   }
 
+  function verifDispoMail($mail){
+    $req = "SELECT * FROM Utilisateur WHERE mail = \"$mail\" ";
+    $nb = $this->db->query($req)->fetchAll()[0][0];
+    return ($nb == 0);
+  }
+}
 
  ?>

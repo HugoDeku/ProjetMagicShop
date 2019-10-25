@@ -1,3 +1,13 @@
+<?php
+    require_once("../model/Utilisateur.class.php");
+    session_start();
+    if(isset($_SESSION['user'])){
+      $user = $_SESSION['user'];
+      $nom = $user->getNom();
+    }
+
+?>
+
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
   <head>
@@ -15,8 +25,16 @@
         <a href="../view/Proposition.view.php"> Proposer une offre </a>
       </nav>
       <div class="Co-Inscription">
-        <a href="../view/Connexion.view.php" class="Connexion">Connexion</a>
-        <a href="../view/Inscription.view.php" class="Inscription">Pas de compte ? Inscrit-toi !</a>
+
+
+        <?php if(isset($user)) : ?>
+          <p>Bonjour : <?=$nom?> </p>
+          <a href="../controler/Deconnexion.ctrl.php"> Deconnexion</a>
+
+        <?php else: ?>
+          <a href="../view/Connexion.view.php" class="Connexion">Connexion</a>
+          <a href="../view/Inscription.view.php" class="Inscription">Pas de compte ? Inscrit-toi !</a>
+        <?php endif; ?>
       </div>
     </header>
 

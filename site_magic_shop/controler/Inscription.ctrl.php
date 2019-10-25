@@ -1,6 +1,7 @@
 <?php
   require_once("../model/DAO.class.php");
   require_once("../model/Utilisateur.class.php");
+  require_once("../framework/view.class.php");
 
   $db = new DAO;
 
@@ -10,8 +11,7 @@
   $mail = htmlentities($_POST['mail']);
 
   session_start();
-  $verifNom = true;
-  $verifMail = true;
+  $view = new View("Inscription");
   if($db->verifDispoNom($nom)){
     if($db->verifDispoMail($mail)){
       $id = $db->genereID();
@@ -19,15 +19,14 @@
       $db->addUser($user);
       $_SESSION['user'] = $user;
     }else{
-      $verifMail = false;
+      $view->verifMail = false;
     }
   }else{
-    $verifNom = false;
+    $view->verifNom = false;
   }
-  $_SESSION['verifNom'] = $verifNom;
-  $_SESSION['verifMail'] = $verifMail;
+
   session_write_close();
-  $view = new View("FormulaireInscription");
+
   $view->show();
 
  ?>
