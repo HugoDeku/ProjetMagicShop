@@ -24,7 +24,7 @@ class View {
     if ($p[0] != '.' && $p[0] != '/') {
       // Ajoute le chemin relatif
       $p = "../view/".$p;
-      $p = $p.".view.html";
+      $p = $p.".view.php";
     }
 
     // Tous les attributs de l'objet sont dupliqués en des variables
@@ -36,7 +36,6 @@ class View {
       // La notation $$ dédigne une variable de le nom est dans une autre variable
       $$key = $this->$key;
     }
-
     // Inclusion de la vue
     // Comme cette inclusion est dans la portée de la méthode show alors
     // seules les variables locales à show sont visibles.

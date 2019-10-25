@@ -2,21 +2,21 @@
 <html lang="fr" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="css/style_general.css">
+    <link rel="stylesheet" href="../view/css/style_general.css">
     <title>MagicShop - Échange et vente de cartes Magic</title>
   </head>
   <body>
 
     <header>
-      <img src="Images/Logo.png" alt="Logo MagicShop">
+      <img src="../view/Images/Logo.png" alt="Logo MagicShop">
       <nav class="Menu">
-        <a href="acceuil.view.html"> Acceuil </a>
-        <a href="exploration.view.php"> Explorer les offres </a>
-        <a href="proposition.view.php"> Proposer une offre </a>
+        <a href="../view/Accueil.view.php"> Acceuil </a>
+        <a href="../view/Exploration.view.php"> Explorer les offres </a>
+        <a href="../view/Proposition.view.php"> Proposer une offre </a>
       </nav>
       <div class="Co-Inscription">
-        <a href="connexion.view.php" class="Connexion">Connexion</a>
-        <a href="inscription.view.php" class="Inscription">Pas de compte ? Inscrit-toi !</a>
+        <a href="../view/Connexion.view.php" class="Connexion">Connexion</a>
+        <a href="../view/Inscription.view.php" class="Inscription">Pas de compte ? Inscrit-toi !</a>
       </div>
     </header>
 

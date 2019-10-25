@@ -3,7 +3,7 @@
 require_once("../model/Utilisateur.class.php");
   session_start();
   if(isset($_SESSION['user'])){
-    $user = $_SESSION['user']);
+    $user = $_SESSION['user'];
   }
 
   if(isset($_SESSION['verifNom'])){
@@ -18,52 +18,58 @@ require_once("../model/Utilisateur.class.php");
   session_write_close();
  ?>
 
-<!DOCTYPE html>
-<html lang="fr" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="css/style_general.css">
-    <title>MagicShop - Échange et vente de cartes Magic</title>
-  </head>
-  <body>
+ <!DOCTYPE html>
+ <html lang="fr" dir="ltr">
+   <head>
+     <meta charset="utf-8">
+     <link rel="stylesheet" href="../view/css/style_general.css">
+     <title>MagicShop - Échange et vente de cartes Magic</title>
+   </head>
+   <body>
 
-    <header>
-      <img src="Images/Logo.png" alt="Logo MagicShop">
-      <nav class="Menu">
-        <a href="acceuil.view.php"> Acceuil </a>
-        <a href="exploration.view.php"> Explorer les offres </a>
-        <a href="proposition.view.php"> Proposer une offre </a>
-      </nav>
-      <div class="Co-Inscription">
-        <a href="connexion.view.php" class="Connexion">Connexion</a>
-        <a href="inscription.view.php" class="Inscription">Pas de compte ? Inscrit-toi !</a>
-      </div>
-    </header>
-
+     <header>
+       <img src="../view/Images/Logo.png" alt="Logo MagicShop">
+       <nav class="Menu">
+         <a href="../view/Accueil.view.php"> Acceuil </a>
+         <a href="../view/Exploration.view.php"> Explorer les offres </a>
+         <a href="../view/Proposition.view.php"> Proposer une offre </a>
+       </nav>
+       <div class="Co-Inscription">
+         <a href="../view/Connexion.view.php" class="Connexion">Connexion</a>
+         <a href="../view/Inscription.view.php" class="Inscription">Pas de compte ? Inscrit-toi !</a>
+       </div>
+     </header>
 
     <?php if(!isset($user)) : ?>
-      //Si l'utilisateur est déjà connecté
+      <!--Si l'utilisateur n'est déjà connecté-->
 
 
-      <?php elseif(isset($verifNom) && $verifNom == false) : ?>
-      //S'il ya à déja eu une tentative et que le nom n'est pas disponible
+      <?php if(isset($verifNom) && $verifNom == false) : ?>
+      <!--S'il ya à déja eu une tentative et que le nom n'est pas disponible-->
       <p>Nom pas disponible, veuillez en choisir un autre</p>
 
       <?php  elseif(isset($verifMail) && $verifMail == false) : ?>
-      //S'il ya à déja eu une tentative et que le mail n'est pas disponible
+      <!--S'il ya à déja eu une tentative et que le mail n'est pas disponible-->
       <p>Mail déjà utilisé, vous avez peut-être déjà un compte</p>
       <?php endif; ?>
       <form action="../controler/Inscription.ctrl.php" method="post">
 
-        <label for="nom"> Pseudo : </label>
-        <input type="text" name="nom" required>
-
-        <label for="mail">Mail : </label>
-        <input type="email" name="mail" required>
-
-        <label for="mdp">Mot de pass : </label>
-        <input type="password" name="mdp" required>
-
+        <fieldset>
+          <legend>Formulaire d'inscription</legend>
+          <label for="nom"> Pseudo : </label>
+          <input type="text" name="nom" required>
+          <br>
+          <label for="mail">Mail : </label>
+          <input type="email" name="mail" required>
+          <br>
+          <label for="mdp">Mot de passe : </label>
+          <input type="password" name="mdp" required>
+          <br>
+          <label for="confirmmdp">Confirmer votre mot de passe : </label>
+          <input type="password" name="confirmmdp" required>
+          <br>
+          <input type="submit" value="Confirmer">
+      </fieldset>
       </form>
 
 
