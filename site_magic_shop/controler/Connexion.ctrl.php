@@ -21,7 +21,7 @@
   if(($nom == $user['nom'] || $nom == $user['mail']) && $mdp == $user['password']){
     session_start();
 
-    $_SESSION['user'] = new Utilisateur($user['id'],$user['nom'],$user['mail'],$user['password']);
+    $_SESSION['user'] = new Utilisateur($user['nom'],$user['mail'],$user['password']);
     $view->show("Accueil");
     session_write_close();
   }else{

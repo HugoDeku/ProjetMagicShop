@@ -7,22 +7,22 @@ require_once('../model/Utilisateur.class.php');
       private $description;
       private $type;
       private $prix;
-      private $date;
+      private $datePublication;
       private $utilisateur;
 
-      function __construct($ref,$titre,$description,$type,$prix,$date,$utilisateur=null){
+      function __construct($ref,$titre,$description,$type,$prix,$datePublication,$utilisateur=null){
         $this->ref = $ref;
         $this->titre = $titre;
         $this->description = $description;
         $this->type = $type;
         $this->prix = $prix;
-        $this->date = $date;
+        $this->datePublication = $datePublication;
         $this->utilisateur = $utilisateur;
       }
 
 
       function getListeType($listeTypeDB){
-        $ref = $this->getRef();
+        $ref = $this->getType();
         $retour = array();
         foreach ($listeTypeDB as $key => $value) {
           if($ref >= $value['ref']){
@@ -53,8 +53,8 @@ require_once('../model/Utilisateur.class.php');
         return $this->prix;
       }
 
-      function getDate(){
-        return $this->date;
+      function getDatePublication(){
+        return $this->datePublication;
       }
 
       function getUtilisateur(){

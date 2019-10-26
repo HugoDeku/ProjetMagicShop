@@ -1,0 +1,3 @@
+1|Dragon blanc aux yeux bleus|Cest pas le meme jeu de carte mais np|216|100.0|2019-10-12|Hugo
+2|Chandra|Elle a ses cheveux qui brulent|80|20.0|2019-10-12|Hugo
+3|Tortue eau|C'est une tortue|136|0.5|2019-10-12|Hugo

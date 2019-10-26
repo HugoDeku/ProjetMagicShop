@@ -66,6 +66,17 @@ input{
 
 }
 
+.offre{
+  display: flex;
+  flex-direction: row;
+}
+
+article{
+  border: solid 1px black;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
 /*
 Connexion
 */

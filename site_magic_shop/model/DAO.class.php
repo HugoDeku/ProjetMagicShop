@@ -23,13 +23,12 @@
     //permet l'ajout d'un nouvelle utilisateur dans la base de données
     {
       //Récupération des attribut de l'objet $user de type Utilisateur
-      $idU = $user->getId();
       $nomU = $user->getNom();
       $mailU = $user->getMail();
       $mdpU = $user->getMdp();
 
       //Création de la requête
-      $req = "INSERT INTO Utilisateur VALUES('$idU', '$nomU', '$mailU', '$mdpU')";
+      $req = "INSERT INTO Utilisateur VALUES('$nomU', '$mailU', '$mdpU')";
       //Éx"cution de la requête
       $this->db->exec($req);
       //var_dump($req);
@@ -49,17 +48,7 @@
       $user = $this->db->query($req)->fetchAll(PDO::FETCH_ASSOC)[0];
       return $user;
     }
-    function genereID() : int//tester et valider
-    //permet la génération d'un nouvelle identifiant en incrémentant le plus grand par 1
-    {
-      //Création de la reqête
-      $req = "SELECT max(id) FROM Utilisateur";
-      //stockage de l'éxécution de la reqête
-      $maxID = $this->db->query($req)->fetchAll()[0][0];
-      //var_dump($maxID)
-      //retour de la valeur incrémenter de 1
-      return $maxID + 1;
-    }
+
 //------------------------------------------------------------------------------
     //Table offre
 
@@ -82,12 +71,9 @@
     {
       //initialisation du compteur
       $res = 0;
-      //création de la requête
-      $req = "SELECT * FROM Type";
-      //exécution de la reqête stockée
-      $toutTypes = $this->db->query($req)->fetchAll();
+      $toutTypes = $this->getTableType();
 
-      foreach ($touttypes as $indice => $ligne) {              //Pour chaque Type de la base
+      foreach ($toutTypes as $indice => $ligne) {              //Pour chaque Type de la base
         foreach ($types as $key => $value) {                   //Pour chaque Type de l'offre
           if($ligne['texteCorrespondant'] == $value ){
             //si le type donné par la base appartien à notre array
@@ -103,8 +89,12 @@
     {
       $req = "SELECT * FROM Offre WHERE type = '$type'";
       //lance la requête SQLite3
-      $offres = $this->db->query($req)->fetchAll(PDO::FETCH_CLASS, "Offre");
-      return $offres;
+      $types = $this->db->query($req)->fetchAll(PDO::FETCH_ASSOC);
+      $arrayRetour = array();
+      foreach ($types as $key => $value) {
+        $arrayRetour[] = new Offre($value['ref'],$value['titre'],$value['description'],$value['type'],$value['prix'],$value['datePublication'],$value['utilisateur']);
+      }
+      return $arrayRetour;
     }
 
     function getTableType(){
@@ -115,8 +105,12 @@
 
     function getOffres(){
       $req = "SELECT * FROM Offre";
-      $types = $this->db->query($req)->fetchAll(PDO::FETCH_CLASS, "Offre");
-      return $types;
+      $types = $this->db->query($req)->fetchAll(PDO::FETCH_ASSOC);
+      $arrayRetour = array();
+      foreach ($types as $key => $value) {
+        $arrayRetour[] = new Offre($value['ref'],$value['titre'],$value['description'],$value['type'],$value['prix'],$value['datePublication'],$value['utilisateur']);
+      }
+      return $arrayRetour;
     }
 
 
@@ -131,7 +125,7 @@
     function genRef() : int //a tester
     //permet la génération d'une nouvelle référence en incrémentant la plus grande référence par 1
     {
-      $req = "SELECT mac(ref) FROM Offre";
+      $req = "SELECT max(ref) FROM Offre";
       $maxRef = $this->db->query($req)->fetchAll()[0][0];
       return  $maxID + 1;
     }

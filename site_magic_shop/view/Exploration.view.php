@@ -39,7 +39,7 @@
 
     <h1>Explorer les offres</h1>
 
-    <article class="">
+    <section class="">
 
       <form class="trie" action="../controler/Exploration.ctrl.php" method="post">
 
@@ -86,11 +86,19 @@
 
       </form>
 
-      </aside>
+
 
       <aside class="offre">
 
+        <?php if(isset($offres)) : ?>
+          <?php foreach ($offres as $value) : ?>
+            <article class="">
+              <h3><?=$value->getTitre()?></h3>
+            </article>
+          <?php endforeach; ?>
+        <?php endif; ?>
+
       </aside>
 
 
-    </article>
+    </section>

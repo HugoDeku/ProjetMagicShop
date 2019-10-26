@@ -1,20 +1,15 @@
 <?php
 class Utilisateur{
-    private $id;
     private $nom;
     private $mail;
     private $mdp;
 
-    function __construct($id = NULL,$nom = NULL,$mail = NULL,$mdp = NULL){
-      $this->id = $id;
+    function __construct($nom = NULL,$mail = NULL,$mdp = NULL){
       $this->nom = $nom;
       $this->mail = $mail;
       $this->mdp = $mdp;
     }
 
-    function getId(){
-      return $this->id;
-    }
 
     function getNom(){
       return $this->nom;
@@ -28,9 +23,6 @@ class Utilisateur{
       return $this->mdp;
     }
 
-    function setId($id){
-      $this->id = $id;
-    }
 
     function setNom($nom){
       $this->nom = $nom;

@@ -14,8 +14,7 @@
   $view = new View("Inscription");
   if($db->verifDispoNom($nom)){
     if($db->verifDispoMail($mail)){
-      $id = $db->genereID();
-      $user = new Utilisateur($id,$nom,$mail,$mdp);
+      $user = new Utilisateur($nom,$mail,$mdp);
       $db->addUser($user);
       $_SESSION['user'] = $user;
     }else{

@@ -1,6 +1,5 @@
 CREATE TABLE Utilisateur(
-  id INTEGER PRIMARY KEY,
-  nom TEXT UNIQUE,
+  nom TEXT UNIQUE PRIMARY KEY,
   mail TEXT,
   password TEXT
 );

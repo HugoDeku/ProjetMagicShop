@@ -6,17 +6,39 @@
   $db = new DAO;
   $listeTypeDB = $db->getTableType();
   $touteLesOffres = $db->getOffres();
-
   $trieType = array();
+  $offreCorrespondantes = array();
 
-  foreach ($_POST['critere'] as $value) {
-    $trieType[] = $value;
+  foreach($_POST['critere'] as $value) {
+      $trieType[] = $value;
   }
 
-  foreach ($touteLesOffres as $key => $value) {
-    
+  if($trieType == NULL){
+    foreach ($listeTypeDB as $key => $value) {
+      $trieType[] = $value['texteCorrespondant'];
+    }
   }
-
-  var_dump($trieType);
+  if($_POST['Correspondance'] == "Doit correspondre parfaitement"){
+    $idParfait = $db->genType($trieType);
+    $offreCorrespondantes = $db->getType($idParfait);
+  }else{
+    foreach ($touteLesOffres as $value) {
+    $typeOffre = $value->getListeType($listeTypeDB);
+    $bool = false;
+    foreach ($typeOffre as $valTypeOffre){
+      foreach ($trieType as $valTrie) {
+        if($valTypeOffre == $valTrie){
+          $bool = true;
+        }
+      }
+    }
+    if($bool){
+      $offreCorrespondantes[] = $value;
+    }
+  }
+  }
+  $view = new View("Exploration");
+  $view->offres = $offreCorrespondantes;
+  $view->show();
 
  ?>
