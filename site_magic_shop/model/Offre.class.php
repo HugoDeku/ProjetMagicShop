@@ -20,6 +20,19 @@ require_once('../model/Utilisateur.class.php');
         $this->utilisateur = $utilisateur;
       }
 
+
+      function getListeType($listeTypeDB){
+        $ref = $this->getRef();
+        $retour = array();
+        foreach ($listeTypeDB as $key => $value) {
+          if($ref >= $value['ref']){
+            $ref = $ref-$value['ref'];
+            $retour[] = $value['texteCorrespondant'];
+          }
+        }
+        return $retour;
+      }
+
       function getRef(){
         return $this->ref;
       }

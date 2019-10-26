@@ -98,7 +98,7 @@
       }
       return $res;
     }
-    function getType(int $type) : array
+    function getType(int $type)
     //renvoie l'ensemble des offre correspondant au type
     {
       $req = "SELECT * FROM Offre WHERE type = '$type'";
@@ -106,6 +106,21 @@
       $offres = $this->db->query($req)->fetchAll(PDO::FETCH_CLASS, "Offre");
       return $offres;
     }
+
+    function getTableType(){
+      $req = "SELECT * FROM Type ORDER BY ref DESC";
+      $types = $this->db->query($req)->fetchAll();
+      return $types;
+    }
+
+    function getOffres(){
+      $req = "SELECT * FROM Offre";
+      $types = $this->db->query($req)->fetchAll(PDO::FETCH_CLASS, "Offre");
+      return $types;
+    }
+
+
+
     function getTitre($titre) : array
     //renvoie l'ensemble des offre ayant $titre compris dans leur titre
     {
