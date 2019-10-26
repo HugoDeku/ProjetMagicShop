@@ -37,20 +37,25 @@
         <?php endif; ?>
       </div>
     </header>
-
+    <?php if(!isset($_SESSION['user'])) : ?>
     <form action="../controler/Connexion.ctrl.php" method="post">
       <fieldset>
         <legend>Formulaire de connexion</legend>
 
-        <label for="nom">Nom d'Utilisateur : </label>
+
+        <label for="nom">Nom d'Utilisateur ou E-mail : </label>
         <input type="text" name="nom" required> <br>
 
         <label for="mdp">Mot de passe : </label>
         <input type="password" name="mdp" required><br>
-
+        <?php if(isset($erreur)) :?>
+          <p><?=$erreur?></p>
+        <?php endif; ?>
         <input type="submit" value="Connexion">
       </fieldset>
-
+    <?php else : ?>
+      <p>vous êtes déjà connecté</p>
+    <?php endif; ?>
 
     </form>
 

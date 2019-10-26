@@ -34,10 +34,18 @@
       $this->db->exec($req);
       //var_dump($req);
     }
-    function getUser($id) : array//tester est valider
+    function getUser($nom)//tester est valider
     //permet la récupération de toute les information d'un utilisateur grace à son idea
     {
-      $req = "Select * from Utilisateur where id = '$id'";
+      $req = "Select * from Utilisateur where nom = '$nom'";
+      $user = $this->db->query($req)->fetchAll(PDO::FETCH_ASSOC)[0];
+      return $user;
+    }
+
+    function getUserParMail($mail)//tester est valider
+    //permet la récupération de toute les information d'un utilisateur grace à son idea
+    {
+      $req = "Select * from Utilisateur where mail = '$mail'";
       $user = $this->db->query($req)->fetchAll(PDO::FETCH_ASSOC)[0];
       return $user;
     }
