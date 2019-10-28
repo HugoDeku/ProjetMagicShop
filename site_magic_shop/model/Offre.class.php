@@ -8,7 +8,7 @@ require_once('../model/Utilisateur.class.php');
       private $type;
       private $prix;
       private $datePublication;
-      private $utilisateur;
+      private $nomUtilisateur;
 
       function __construct($ref,$titre,$description,$type,$prix,$datePublication,$utilisateur=null){
         $this->ref = $ref;
@@ -17,7 +17,7 @@ require_once('../model/Utilisateur.class.php');
         $this->type = $type;
         $this->prix = $prix;
         $this->datePublication = $datePublication;
-        $this->utilisateur = $utilisateur;
+        $this->nomUtilisateur = $utilisateur;
       }
 
 
@@ -58,7 +58,7 @@ require_once('../model/Utilisateur.class.php');
       }
 
       function getUtilisateur(){
-        return $this->utilisateur;
+        return $this->nomUtilisateur;
       }
 
   }

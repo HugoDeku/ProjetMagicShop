@@ -52,7 +52,7 @@
 //------------------------------------------------------------------------------
     //Table offre
 
-    function addOffre(Offre $offre)//pas fini
+    function addOffre(Offre $offre)//A tester
     //permet l'ajout d'une nouvelle offre dans la base de données
     {
       //Récupération des attribut de l'objet $user de type Utilisateur
@@ -64,7 +64,15 @@
       $dateO = $offre->getDate();
       $userO = $offre->getUtilisateur();
 
-
+      $req = "INSERT INTO Offre VALUES(
+        '$refO',
+        '$titreO',
+        '$descO',
+        '$typeO',
+        '$prixO',
+        '$dateO',
+        '$userO')";
+      $this->db->exec($req);
     }
     function genType(array $types) : int//tester et valider
     //permet de générer la valeur numérique d'une offre en fonction de ses types
@@ -84,7 +92,7 @@
       }
       return $res;
     }
-    function getType(int $type)
+    function getType(int $type) : array//A tester
     //renvoie l'ensemble des offre correspondant au type
     {
       $req = "SELECT * FROM Offre WHERE type = '$type'";
@@ -97,13 +105,13 @@
       return $arrayRetour;
     }
 
-    function getTableType(){
+    function getTableType() : array{
       $req = "SELECT * FROM Type ORDER BY ref DESC";
       $types = $this->db->query($req)->fetchAll();
       return $types;
     }
 
-    function getOffres(){
+    function getOffres() : array{
       $req = "SELECT * FROM Offre";
       $types = $this->db->query($req)->fetchAll(PDO::FETCH_ASSOC);
       $arrayRetour = array();
@@ -131,13 +139,13 @@
     }
 
 
-  function verifDispoNom($nom){
+  function verifDispoNom($nom) : bool{
     $req = "SELECT count(*) FROM Utilisateur WHERE nom = \"$nom\" ";
     $nb = $this->db->query($req)->fetchAll()[0][0];
     return ($nb == 0);
   }
 
-  function verifDispoMail($mail){
+  function verifDispoMail($mail) : bool{
     $req = "SELECT * FROM Utilisateur WHERE mail = \"$mail\" ";
     $nb = $this->db->query($req)->fetchAll()[0][0];
     return ($nb == 0);

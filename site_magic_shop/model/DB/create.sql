@@ -11,7 +11,7 @@ CREATE TABLE Offre(
   type INTEGER,
   prix FLOAT,
   datePublication DATE,
-  utilisateur REFERENCES Utilisateur
+  utilisateur FOREIGN KEY REFERENCES Utilisateur(nom)
 );
 
 CREATE TABLE Type(
