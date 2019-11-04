@@ -146,7 +146,7 @@
   }
 
   function verifDispoMail($mail) : bool{
-    $req = "SELECT * FROM Utilisateur WHERE mail = \"$mail\" ";
+    $req = "SELECT count(*) FROM Utilisateur WHERE mail = \"$mail\" ";
     $nb = $this->db->query($req)->fetchAll()[0][0];
     return ($nb == 0);
   }

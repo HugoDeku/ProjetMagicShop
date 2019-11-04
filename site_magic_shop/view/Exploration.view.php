@@ -1,10 +1,10 @@
 <?php
+    require_once("../model/Utilisateur.class.php");
     session_start();
     if(isset($_SESSION['user'])){
       $user = $_SESSION['user'];
       $nom = $user->getNom();
     }
-    session_write_close();
 ?>
 
 <!DOCTYPE html>
