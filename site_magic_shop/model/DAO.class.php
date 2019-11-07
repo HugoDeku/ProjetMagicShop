@@ -61,9 +61,8 @@
       $descO = $offre->getDescription();
       $typeO = $offre->getType();
       $prixO = $offre->getPrix();
-      $dateO = $offre->getDate();
+      $dateO = $offre->getDatePublication();
       $userO = $offre->getUtilisateur();
-
       $req = "INSERT INTO Offre VALUES(
         '$refO',
         '$titreO',
@@ -134,7 +133,10 @@
     //permet la génération d'une nouvelle référence en incrémentant la plus grande référence par 1
     {
       $req = "SELECT max(ref) FROM Offre";
-      $maxRef = $this->db->query($req)->fetchAll()[0][0];
+      $maxID = $this->db->query($req)->fetchAll()[0][0];
+      if($maxID == NULL){
+        $maxID = 0;
+      }
       return  $maxID + 1;
     }
 
@@ -149,6 +151,13 @@
     $req = "SELECT count(*) FROM Utilisateur WHERE mail = \"$mail\" ";
     $nb = $this->db->query($req)->fetchAll()[0][0];
     return ($nb == 0);
+  }
+
+  function getOffreAvecRef($ref){
+    $req = "SELECT * FROM Offre WHERE ref = \"$ref\" ";
+    $value = $this->db->query($req)->fetchAll()[0];
+    $retour = new Offre($value['ref'],$value['titre'],$value['description'],$value['type'],$value['prix'],$value['datePublication'],$value['utilisateur']);
+    return $retour;
   }
 }
 

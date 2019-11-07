@@ -1,10 +1,9 @@
 <?php
-    require_once("../model/Utilisateur.class.php");
-    session_start();
-    if(isset($_SESSION['user'])){
-      $user = $_SESSION['user'];
-      $nom = $user->getNom();
-    }
+require_once("../model/Utilisateur.class.php");
+session_start();
+if(isset($_SESSION['user'])){
+  $user = $_SESSION['user'];
+}
 
 ?>
 
@@ -22,13 +21,13 @@
       <nav class="Menu">
         <a href="../view/Accueil.view.php"> Acceuil </a>
         <a href="../controler/Exploration.ctrl.php"> Explorer les offres </a>
-        <a href="../view/Proposition.view.php"> Proposer une offre </a>
+        <a href="../controler/Proposition.ctrl.php"> Proposer une offre </a>
       </nav>
       <div class="Co-Inscription">
 
 
         <?php if(isset($user)) : ?>
-          <p>Bonjour : <?=$nom?> </p>
+          <p>Bonjour : </p>
           <a href="../controler/Deconnexion.ctrl.php"> Deconnexion</a>
 
         <?php else: ?>
@@ -42,21 +41,21 @@
 
       <h1>Proposer une offre</h1>
 
-      <form class="form_proposition" action="Proposition.ctrl.php" method="post">
+      <form class="form_proposition" action="PropositionAjouter.ctrl.php" method="post">
 
         <div class="combo_label_input">
           <label for="titre">Titre : </label>
-          <input type="text" name="titre">
+          <input type="text" name="titre" required>
         </div>
 
         <div class="combo_label_input">
           <label for="description">Description : </label>
-          <input type="text" name="description">
+          <textarea name="description" rows="8" cols="23" required></textarea>
         </div>
 
         <div class="combo_label_input">
           <label for="prix">Prix voulue en € : </label>
-          <input type="number" step="0.01" name="prix">
+          <input type="number" step="0.01" name="prix" required>
         </div>
 
         <div class="combo_label_input">

@@ -24,7 +24,7 @@
       <nav class="Menu">
         <a href="../view/Accueil.view.php"> Acceuil </a>
         <a href="../controler/Exploration.ctrl.php"> Explorer les offres </a>
-        <a href="../view/Proposition.view.php"> Proposer une offre </a>
+        <a href="../controler/Proposition.ctrl.php"> Proposer une offre </a>
       </nav>
       <div class="Co-Inscription">
 
@@ -104,9 +104,10 @@
                 <p class="Categories">
                   <?php foreach (($value->getListeType($db->getTableType())) as $cat) {
                     echo $cat."   ";
-                  } ?>
+                  }
+                  ?>
                 </p>
-                <a href="../view/DetailsOffre.view.php" class="detailsoffre">En savoir plus ...</a>
+                <a href="../view/DetailsOffre.view.php?ref=<?=$value->getRef()?>" class="detailsoffre">En savoir plus ...</a>
               </div>
             </article>
           <?php endforeach; ?>

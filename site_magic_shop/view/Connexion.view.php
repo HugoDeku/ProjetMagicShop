@@ -22,7 +22,7 @@
       <nav class="Menu">
         <a href="../view/Accueil.view.php"> Acceuil </a>
         <a href="../controler/Exploration.ctrl.php"> Explorer les offres </a>
-        <a href="../view/Proposition.view.php"> Proposer une offre </a>
+        <a href="../controler/Proposition.ctrl.php"> Proposer une offre </a>
       </nav>
       <div class="Co-Inscription">
 

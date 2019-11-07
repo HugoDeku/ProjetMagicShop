@@ -1,8 +1,8 @@
 <?php
   require_once("../framework/view.class.php");
 
-  session_start()
-  if(isset($_SESSION['user'])){
+  session_start();
+  if(isset($_SESSION['user'])) {
     $vue = new View("Proposition");
     $vue->show();
   }else{

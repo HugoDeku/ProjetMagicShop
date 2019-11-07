@@ -80,6 +80,7 @@ input{
   border: solid 1px black;
   margin-left: 10px;
   margin-right: 10px;
+  margin-bottom: 10px;
 }
 
 .coller_droite{
@@ -108,12 +109,19 @@ input{
 
 .combo_label_input{
   margin-bottom: 20px;
+}
 
 .prop_butt{
   display: inline-block;
   width: 200px;
   margin-left: 7%;
 }
+
+textarea{
+  resize: none;
+}
+
+
 
 /*
 Connexion
