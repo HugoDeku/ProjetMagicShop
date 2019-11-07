@@ -66,16 +66,39 @@ input{
 
 }
 
-.offre{
+.offres{
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
 }
 
-article{
+.offre {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
   border: solid 1px black;
   margin-left: 10px;
   margin-right: 10px;
 }
+
+.coller_droite{
+  position: absolute;
+  margin-left: 425px;
+  color: #cc9900;
+}
+
+.detailsoffre {
+  position: absolute;
+  margin-left: 370px;
+  margin-top: 30px
+}
+
+.flex_ligne{
+  display: flex;
+  flex-direction: row;
+}
+
 
 /*
 Connexion

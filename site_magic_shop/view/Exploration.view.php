@@ -1,10 +1,13 @@
 <?php
     require_once("../model/Utilisateur.class.php");
+    require_once("../model/DAO.class.php");
     session_start();
     if(isset($_SESSION['user'])){
       $user = $_SESSION['user'];
       $nom = $user->getNom();
     }
+
+    $db = new DAO;
 ?>
 
 <!DOCTYPE html>
@@ -88,12 +91,23 @@
 
 
 
-      <aside class="offre">
+      <aside class="offres">
 
         <?php if(isset($offres)) : ?>
           <?php foreach ($offres as $value) : ?>
-            <article class="">
-              <h3><?=$value->getTitre()?></h3>
+            <article class="offre">
+              <div class="flex_ligne">
+                <h3><?=$value->getTitre()?></h3>
+                <p class="coller_droite"><?=$value->getPrix()?> €</p>
+              </div>
+              <div class="flex_ligne">
+                <p class="Categories">
+                  <?php foreach (($value->getListeType($db->getTableType())) as $cat) {
+                    echo $cat."   ";
+                  } ?>
+                </p>
+                <a href="../view/DetailsOffre.view.php" class="detailsoffre">En savoir plus ...</a>
+              </div>
             </article>
           <?php endforeach; ?>
         <?php endif; ?>
