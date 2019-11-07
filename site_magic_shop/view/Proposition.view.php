@@ -5,6 +5,7 @@
       $user = $_SESSION['user'];
       $nom = $user->getNom();
     }
+
 ?>
 
 <!DOCTYPE html>
@@ -37,12 +38,13 @@
       </div>
     </header>
 
-    <h1>Explorer les offres</h1>
+    <body>
 
-    <section class="">
+      <h1>Proposer une offre</h1>
 
-      <form class="trie" action="../controler/Exploration.ctrl.php" method="post">
+      <form action="" method="post">
 
+        
 
         <label for="Ephémère">Ephémère</label>
         <input type="checkbox" name="critere[]" value="Ephémère">
@@ -77,28 +79,19 @@
         <label for="Blanc">Blanc</label>
         <input type="checkbox" name="critere[]" value="Blanc">
 
-        <select name="Correspondance">
-          <option>Doit correspondre parfaitement</option>
-          <option selected>Possède un des attributs</option>
-        </select>
-
-        <input type="submit" value="Trier">
-
       </form>
 
 
 
-      <aside class="offre">
-
-        <?php if(isset($offres)) : ?>
-          <?php foreach ($offres as $value) : ?>
-            <article class="">
-              <h3><?=$value->getTitre()?></h3>
-            </article>
-          <?php endforeach; ?>
-        <?php endif; ?>
-
-      </aside>
 
 
-    </section>
+
+
+
+
+
+
+
+
+
+    </body>

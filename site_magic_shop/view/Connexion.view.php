@@ -21,7 +21,7 @@
       <img src="../view/Images/Logo.png" alt="Logo MagicShop">
       <nav class="Menu">
         <a href="../view/Accueil.view.php"> Acceuil </a>
-        <a href="../view/Exploration.view.php"> Explorer les offres </a>
+        <a href="../controler/Exploration.ctrl.php"> Explorer les offres </a>
         <a href="../view/Proposition.view.php"> Proposer une offre </a>
       </nav>
       <div class="Co-Inscription">
