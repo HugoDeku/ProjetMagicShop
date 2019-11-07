@@ -19,7 +19,7 @@
 //------------------------------------------------------------------------------
     //Table Utilisateurstring
 
-    function addUser(Utilisateur $user)//tester et valider
+    function addUser(Utilisateur $user)
     //permet l'ajout d'un nouvelle utilisateur dans la base de données
     {
       //Récupération des attribut de l'objet $user de type Utilisateur
@@ -33,7 +33,7 @@
       $this->db->exec($req);
       //var_dump($req);
     }
-    function getUser($nom)//tester est valider
+    function getUser($nom)
     //permet la récupération de toute les information d'un utilisateur grace à son idea
     {
       $req = "Select * from Utilisateur where nom = '$nom'";
@@ -52,7 +52,7 @@
 //------------------------------------------------------------------------------
     //Table offre
 
-    function addOffre(Offre $offre)//A tester
+    function addOffre(Offre $offre)
     //permet l'ajout d'une nouvelle offre dans la base de données
     {
       //Récupération des attribut de l'objet $user de type Utilisateur
@@ -73,7 +73,7 @@
         '$userO')";
       $this->db->exec($req);
     }
-    function genType(array $types) : int//tester et valider
+    function genType(array $types) : int
     //permet de générer la valeur numérique d'une offre en fonction de ses types
     {
       //initialisation du compteur
@@ -91,7 +91,7 @@
       }
       return $res;
     }
-    function getType(int $type) : array//A tester
+    function getType(int $type) : array
     //renvoie l'ensemble des offre correspondant au type
     {
       $req = "SELECT * FROM Offre WHERE type = '$type'";
@@ -104,13 +104,17 @@
       return $arrayRetour;
     }
 
-    function getTableType() : array{
+    function getTableType() : array
+    //Permet de retourner tous les types existants
+    {
       $req = "SELECT * FROM Type ORDER BY ref DESC";
       $types = $this->db->query($req)->fetchAll();
       return $types;
     }
 
-    function getOffres() : array{
+    function getOffres() : array
+    //Permet de retourner toutes les offres
+    {
       $req = "SELECT * FROM Offre";
       $types = $this->db->query($req)->fetchAll(PDO::FETCH_ASSOC);
       $arrayRetour = array();
@@ -141,19 +145,25 @@
     }
 
 
-  function verifDispoNom($nom) : bool{
+  function verifDispoNom($nom) : bool
+  //Vérifie si le nom d'utilisateur est dispo
+  {
     $req = "SELECT count(*) FROM Utilisateur WHERE nom = \"$nom\" ";
     $nb = $this->db->query($req)->fetchAll()[0][0];
     return ($nb == 0);
   }
 
-  function verifDispoMail($mail) : bool{
+  function verifDispoMail($mail) : bool
+  //Vérifie si l'@ email est dispo
+  {
     $req = "SELECT count(*) FROM Utilisateur WHERE mail = \"$mail\" ";
     $nb = $this->db->query($req)->fetchAll()[0][0];
     return ($nb == 0);
   }
 
-  function getOffreAvecRef($ref){
+  function getOffreAvecRef($ref)
+  //Permet de sortir une Offre par rapport à une référence
+  {
     $req = "SELECT * FROM Offre WHERE ref = \"$ref\" ";
     $value = $this->db->query($req)->fetchAll()[0];
     $retour = new Offre($value['ref'],$value['titre'],$value['description'],$value['type'],$value['prix'],$value['datePublication'],$value['utilisateur']);
