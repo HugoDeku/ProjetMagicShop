@@ -42,42 +42,79 @@
 
       <h1>Proposer une offre</h1>
 
-      <form action="" method="post">
+      <form class="form_proposition" action="Proposition.ctrl.php" method="post">
 
-        
+        <div class="combo_label_input">
+          <label for="titre">Titre : </label>
+          <input type="text" name="titre">
+        </div>
 
-        <label for="Ephémère">Ephémère</label>
-        <input type="checkbox" name="critere[]" value="Ephémère">
+        <div class="combo_label_input">
+          <label for="description">Description : </label>
+          <input type="text" name="description">
+        </div>
 
-        <label for="Rituel">Rituel</label>
-        <input type="checkbox" name="critere[]" value="Rituel">
+        <div class="combo_label_input">
+          <label for="prix">Prix voulue en € : </label>
+          <input type="number" step="0.01" name="prix">
+        </div>
 
-        <label for="Enchantement">Enchantement</label>
-        <input type="checkbox" name="critere[]" value="Enchantement">
+        <div class="combo_label_input">
+          <label for="Ephémère">Ephémère</label>
+          <input type="checkbox" name="critere[]" value="Ephémère">
+        </div>
 
-        <label for="Créature">Créature</label>
-        <input type="checkbox" name="critere[]" value="Créature">
+        <div class="combo_label_input">
+          <label for="Rituel">Rituel</label>
+          <input type="checkbox" name="critere[]" value="Rituel">
+        </div>
 
-        <label for="PlanesWalker">PlanesWalker</label>
-        <input type="checkbox" name="critere[]" value="PlanesWalker">
+        <div class="combo_label_input">
+          <label for="Enchantement">Enchantement</label>
+          <input type="checkbox" name="critere[]" value="Enchantement">
+        </div>
 
-        <label for="Terrain">Terrain</label>
-        <input type="checkbox" name="critere[]" value="Terrain">
+        <div class="combo_label_input">
+          <label for="Créature">Créature</label>
+          <input type="checkbox" name="critere[]" value="Créature">
+        </div>
 
-        <label for="Rouge">Rouge</label>
-        <input type="checkbox" name="critere[]" value="Rouge">
+        <div class="combo_label_input">
+          <label for="PlanesWalker">PlanesWalker</label>
+          <input type="checkbox" name="critere[]" value="PlanesWalker">
+        </div>
 
-        <label for="Bleu">Bleu</label>
-        <input type="checkbox" name="critere[]" value="Bleu">
+        <div class="combo_label_input">
+          <label for="Terrain">Terrain</label>
+          <input type="checkbox" name="critere[]" value="Terrain">
+        </div>
 
-        <label for="Vert">Vert</label>
-        <input type="checkbox" name="critere[]" value="Vert">
+        <div class="combo_label_input">
+          <label for="Rouge">Rouge</label>
+          <input type="checkbox" name="critere[]" value="Rouge">
+        </div>
 
-        <label for="Noir">Noir</label>
-        <input type="checkbox" name="critere[]" value="Noir">
+        <div class="combo_label_input">
+          <label for="Bleu">Bleu</label>
+          <input type="checkbox" name="critere[]" value="Bleu">
+        </div>
 
-        <label for="Blanc">Blanc</label>
-        <input type="checkbox" name="critere[]" value="Blanc">
+        <div class="combo_label_input">
+          <label for="Vert">Vert</label>
+          <input type="checkbox" name="critere[]" value="Vert">
+        </div>
+
+        <div class="combo_label_input">
+          <label for="Noir">Noir</label>
+          <input type="checkbox" name="critere[]" value="Noir">
+        </div>
+
+        <div class="combo_label_input">
+          <label for="Blanc">Blanc</label>
+          <input type="checkbox" name="critere[]" value="Blanc">
+        </div>
+
+        <button type="submit" class="prop_butt">Proposer</button>
 
       </form>
 

@@ -77,6 +77,25 @@ article{
   margin-right: 10px;
 }
 
+.form_proposition{
+  display: flex;
+  flex-direction: column;
+  margin-left: 40%;
+
+}
+
+.combo_label_input{
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: row;
+}
+
+.prop_butt{
+  display: inline-block;
+  width: 200px;
+  margin-left: 7%;
+}
+
 /*
 Connexion
 */
